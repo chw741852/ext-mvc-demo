@@ -15,7 +15,6 @@ Ext.define('Pandora.view.goods.GoodsListView', {
     tbar: [
         { text: '测试1', action: 'testBtn1' },
         ' - ',
-        { text: '测试2', action: 'testBtn2' },
-        ' - '
+        { text: '测试2', action: 'testBtn2' }
     ]
 });

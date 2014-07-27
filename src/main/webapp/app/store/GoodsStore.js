@@ -5,7 +5,7 @@
  */
 Ext.define('Pandora.store.GoodsStore', {
     extend: 'Ext.data.Store',
-    model: 'Pandora.model.GoodsStore',
+    model: 'Pandora.model.GoodsModel',
     autoLoader: true,
     proxy: {
         type: 'ajax',

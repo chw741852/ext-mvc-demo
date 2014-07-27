@@ -7,7 +7,8 @@ Ext.define('Pandora.controller.GoodsController', {
     extend: 'Ext.app.Controller',
     stores: [ 'GoodsStore' ],   // 声明控件要用到的store
     models: [ 'GoodsModel' ],   // 声明控件要用到的model
-    view: [ 'Pandora.GoodsListView', 'Pandora.GoodsWinView' ],  // 声明控件要用到的view
+    views: [ 'goods.GoodsListView', 'goods.GoodsWinView' ],  // 声明控件要用到的view
+
     refs: [ // 相当于一个映射，这样就可以在控件层方面的通过geter取得相应的对象了
         {
             ref: 'goodslistview',
@@ -18,9 +19,10 @@ Ext.define('Pandora.controller.GoodsController', {
             selector: 'goodswinview'
         }
     ],
+
     init: function() {
         this.control({  // 这里的this相当于这个控件层
-            'viewprot > goodslistview': {
+            'viewport > goodslistview': {
                 afterrender: function(gp) { // 监听goodslistview渲染
                     gp.down('button[action=testBtn1]').on('click', function() {
                         // 监听goodslistview工具条上action=testBtn1的按钮单击事件
@@ -28,13 +30,13 @@ Ext.define('Pandora.controller.GoodsController', {
                     }, this);
 
                     gp.down('button[action=testBtn2]').on('click', function() {
-                        alert(this.getGoodslistview().title());
+                        alert(this.getGoodslistview().title);
                     }, this);
                 }
             },
             'goodswinview button[action=ok]': {
                 click: function() {
-                    this.getGoodswinview().setTitle(Ext.util.format.date(new Date(), 'Y-m-d H:i:s'));
+                    this.getGoodswinview().setTitle(Ext.util.Format.date(new Date(), 'Y-m-d H:i:s'));
                 }
             }
         });
